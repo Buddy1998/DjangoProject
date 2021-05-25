@@ -6,7 +6,7 @@ Features of the project:
 
 	Registration  
             Check’s weather the username, email is already taken.
-            Check’s weather the re-entered password is same as the first password.
+            Check’s weather the confirmation password is same as the first password.
             
 	Login
             Displays message in case of invalid credentials given by user.
