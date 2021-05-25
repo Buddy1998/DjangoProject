@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: sans-serif ; background-color:coral ;  background-size: cover">
+    <div class="login-box"  style=" width : 280px; position:absolute; top : 50%; left:50%; transform: translate(-50%,-50%); color:white">
+        <form action="register" method="post">
+            {% csrf_token %}
+            <h1>Sign-in</h1>
+            <div class="textbox"  style="width: 100%; overflow : hidden; font-size: 20px; padding: 8px 0; margin: 8px 0; border-bottom: 1px solid #4caf50">
+              <input type="text" name="first_name" placeholder="First Name" >
+            </div>
+
+            <div class="textbox"  style="width: 100%; overflow : hidden; font-size: 20px; padding: 8px 0; margin: 8px 0; border-bottom: 1px solid #4caf50">
+              <input type="text" name="last_name" placeholder="Last Name">
+            </div>
+
+            <div class="textbox"  style="width: 100%; overflow : hidden; font-size: 20px; padding: 8px 0; margin: 8px 0; border-bottom: 1px solid #4caf50">
+              <input type="text" name="username" placeholder="Username">
+            </div>
+
+            <div class="textbox"  style="width: 100%; overflow : hidden; font-size: 20px; padding: 8px 0; margin: 8px 0; border-bottom: 1px solid #4caf50">
+              <input type="email" name="email" placeholder="email">
+            </div>
+
+            <div class="textbox"  style="width: 100%; overflow : hidden; font-size: 20px; padding: 8px 0; margin: 8px 0; border-bottom: 1px solid #4caf50">
+              <input type="password" name="password1" placeholder="Password">
+            </div>
+
+            <div class="textbox"  style="width: 100%; overflow : hidden; font-size: 20px; padding: 8px 0; margin: 8px 0; border-bottom: 1px solid #4caf50">
+              <input type="password" name="password2" placeholder="Confirm Password">
+            </div>
+
+            <input class="btn" type="Submit" name="" value="Sign in"  style="width: 100%; background: none;border: 2px solid #4caf50; color:white;padding: 5px;font-size: 18px;cursor: pointer;argin: 12px 0">
+        </form>
+    </div>
+    <div>
+        {% for message in messages %}
+        <h3> {{message}}  </h3>
+        {% endfor %}
+    </div>
+</body>
+</html>

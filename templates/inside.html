@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'addpost.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+
+  <!-- Heading and logout panel-->
+    <section id="navbar">
+      <div class="container-fluid">
+        <div class="row nav">
+          <div class="col-sm-2 logo">
+              <i>Social website</i>
+          </div>
+            <div style="position:fixed ;top:-10px;left:1300px">
+           <div class="col-sm-1 top_link" >
+            <p href="#"><b><i>hello {{ user.first_name }}</i></b></p>
+          </div>
+            <a href="accounts/logout"  style="color:darkblue;position:fixed ;top:6px;left:1400px; background: none;border: 2px solid #4caf50;padding: 5px;font-size: 18px;cursor: pointer">Logout</a>
+            </div><br>
+
+          <div class="col-sm-6">
+          </div>
+
+          <div class="col-sm-2">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!--navigation head -->
+
+    <div class="container">
+      <div class="row navhead">
+        <div class="col-sm-2 text-center">
+          <a href="allposts2">All</a>          <!-- home -->
+        </div>
+
+        <div class="col-sm-2 text-center">
+          <a href="inside">Add Post</a>
+          <div class="line">
+
+          </div>
+        </div>
+      </div>
+      <!--form to make a post-->
+      <section id="post">
+        <h3>Create Post </h3>
+        <form class="" action="inside" method="post">
+          {% csrf_token %}
+          <textarea id="post_text" name="post_text" rows="5" cols="60" placeholder="Enter some text here ..."></textarea>
+          <br><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="submit" name="button" >Submit</button>
+          <!-- onclick="document.getElementByClass('prev').style.display = 'visible';" -->
+        </form>
+      </section>
+    </div>
+
+    <!--post made by user (post,like,comment) -->
+    <section>
+      <div class="container-fluid prev">
+        <div class="row">
+          <div class="col-sm-3">
+          </div>
+          <div class="col-sm-5 post_area">
+            <div style="margin:10px auto;">
+              <i class="fas fa-user-circle" style="font-size: 35px;"></i>
+              <span id="user">{{username}}</span>
+              <span id="cross"><i class="fas fa-times"></i></span>
+            </div>
+            <div>
+              <p id="p1">
+               </p>
+            </div>
+            <div class="like_btn">
+              <span><i class="far fa-thumbs-up"></i> <a href="#"> Like</a></span>
+              <span><i class="far fa-comment"></i> <a href="#"> Comment</a></span>
+            </div>
+          </div>
+          <div class="col-sm-3">
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+
+</html>
+
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+  </head>
+  <body  style="margin: 0; padding: 0; font-family: sans-serif ; background-color:coral ;  background-size: cover">
+        <h1 style="position: fixed; transform:translate(500px,50px)">Welcome to the Website</h1>
+                <br/>
+        <div class="login-box"  style=" width : 280px; position:absolute; top : 50%; left:50%; transform: translate(-50%,-50%); color:white">
+                <div>
+                <a href="accounts/register"  style=" color:darkblue;width: 100%; background: none;border: 2px solid #4caf50;padding: 5px;font-size: 30px;cursor: pointer">Signup</a><br/>
+                </div><br>
+                <div>
+                <a href="accounts/login"  style="; color:darkblue;width: 100%; background: none;border: 2px solid #4caf50;padding: 5px;font-size: 30px;cursor: pointer">Login</a>
+                </div><br>
+
+
+        </div>
+        <div>
+            {% if user.is_authenticated == False %}
+            <h5 style="position: fixed; transform:translate(590px,370px)">Please Login to Continue</h5>
+            {% endif %}
+        </div>
+  </body>
+</html>

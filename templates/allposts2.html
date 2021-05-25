@@ -1,0 +1,101 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Social website</title>
+    <link rel="stylesheet" href="{% static 'allposts.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <!-- Heading and logout panel-->
+    <section id="navbar">
+      <div class="container-fluid">
+        <div class="row nav">
+            <div class="col-sm-2 logo">
+              <i>Social website</i>
+          </div>
+          <div class="col-sm-6">
+          </div>
+          </div>
+        </div>
+      </div>
+        <div style="position:fixed ;top:-10px;left:1300px">
+        <div class="col-sm-1 top_link" >
+            <p href="#"><b><i>hello {{ user.first_name }}</i></b></p>
+        </div>
+            <a href="accounts/logout"  style="color:darkblue;position:fixed ;top:6px;left:1400px; background: none;border: 2px solid #4caf50;padding: 5px;font-size: 18px;cursor: pointer">Logout</a>
+        </div><br>
+    </section>
+
+    <!--navigation head -->
+    <div class="container">
+      <div class="row navhead">
+        <div class="col-sm-1">
+
+        </div>
+        <div class="col-sm-2 text-center">
+          <a href="allposts2">All</a>
+          <div class="line">
+
+          </div>
+        </div>
+
+        <div class="col-sm-2 text-center">
+          <a href="inside">Add Post</a>
+        </div>
+      </div>
+      <section id="all_posts">
+
+
+      </section>
+    </div>
+ <div class="container">
+
+
+    {% for p in all_text %}
+        <div class="row justify-content-center mt-3">
+        <div class="col-md-5 col-sm-12 border-bottom position-relative">
+              <div style="margin:10px auto;">
+                <i class="fas fa-user-circle" style="font-size: 35px;"></i><span id="user">{{p.name}}</span>
+                <span style="margin-left:120px; font-size:14px;">{{p.date}}</span>
+                  <div>
+                      <br/>
+                <p>{{p.text}}
+                 </p>
+              </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-row">
+                <form method="POST" action="{% url 'like' p.pk %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <button style="background-color: transparent; border: none; box-shadow: none;" type="submit">
+                        <i class="far fa-thumbs-up"> <span>{{ p.likes.all.count }}</span></i>
+                    </button>
+                </form>
+
+                <form method="POST" action="{% url 'dislike' p.pk %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <button style="background-color: transparent; border: none; box-shadow: none;" type="submit">
+                        <i class="far fa-thumbs-down"> <span>{{ p.dislikes.all.count }}</span></i>
+                    </button>
+                </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<!-- java script -->
+
+
+{% csrf_token %}
+  </body>
+</html>
