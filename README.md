@@ -4,14 +4,14 @@ Django project
 
 Features of the project:
 
-	Registration  
+	Registration  :    
             Check’s weather the username, email is already taken.
             Check’s weather the confirmation password is same as the first password.
             
-	Login
-            Displays message in case of invalid credentials given by user.
+	Login  :
+                Displays error message in case of invalid credentials given by user.
 
-	 Navigation tab
+	 Navigation tab :
               Allows to navigate between the add post and the total feed pages.
 	            Log out option is provided.
  
